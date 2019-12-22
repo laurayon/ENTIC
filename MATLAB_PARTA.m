@@ -49,15 +49,6 @@ fopen(s); %obre serial port
     fprintf(f,'Time: %s\nMesures: %s\n', t, m);
     fclose(f);
 
-    %    while 1
-    %    fprintf(s, 'E');
-    %    fwrite(s, 'E');
-    %    a=fscanf(s);
-    %    if ~isnumeric(a)
-    %        break
-    %    end
-   % end
-   
     fclose(s);
     delete(s);
     clear s;
