@@ -21,11 +21,11 @@ while (var == 0)
                 set(s2,'BaudRate',9600, 'Terminator', 'CR/LF');
                 fopen(s2); %obre serial port
           
-            x = input('For how many hours you want to measure?');%x = número d'hores
+            x = input('For how many hours you want to measure?');%x = nÃºmero d'hores
             t = []; %vector temps pels sensors de temperatura, pH i salinitat
-            tp = []; %vector temps pel sensor de presió 
+            tp = []; %vector temps pel sensor de presiÃ³ 
             
-          %Vectors per llegir pressió  
+          %Vectors per llegir pressiÃ³  
             p = []; %vector que rep les dades directes de l'arduino
             meanp = []; %vector on es guarden les mitjanes
 
@@ -41,8 +41,8 @@ while (var == 0)
             sal = []; %vector que rep les dades directes de l'arduino
             meana = []; %vector on es guarden les mitjanes
 
-            %es necessiten 30 min per fer una gràfica de cada tipus
-            y = x*2; %x mostres / 0,5h per roda de gràfics
+            %es necessiten 30 min per fer una grÃ fica de cada tipus
+            y = x*2; %x mostres / 0,5h per roda de grÃ fics
             for j = 0:y
                 ft = fopen('temperature.txt', 'w+');
                 fh = fopen('pH.txt', 'w+');
@@ -75,7 +75,7 @@ while (var == 0)
                         
                         tp = [tp, cont*0.2*4]; %les mostres de depth es prenen cada 0,2s 
                         t = [t, cont*0.9*4]; %les mostres de la resta es prenen cada 0,9s
-                        fprintf(ft,'Time: %ds\tMeasure: %sºC\n', cont*0.9*4, bt);
+                        fprintf(ft,'Time: %ds\tMeasure: %sÂºC\n', cont*0.9*4, bt);
                         fprintf(fh,'Time: %ds\tMeasure: %spH units\n ', cont*0.9*4, bh);
                         fprintf(fa,'Time: %ds\tMeasure: %sV\n', cont*0.9*4, ba);
                         fprintf(fp,'Time: %ds\tMeasure: %sm\n', cont*0.2, bp);
@@ -85,14 +85,14 @@ while (var == 0)
                         ylim([0 30]) %limita els valors de l'eix de les y 
                         title('Temperature - Time graph');
                         xlabel('Time(s)'); 
-                        ylabel('Temperature (ºC)'); %Temperatura en celsius 
+                        ylabel('Temperature (ÂºC)'); %Temperatura en celsius 
                         grid on; 
                     if(length(temp)>=1)
                     subplot(2,2,2); plot(t,meanh, 'r');drawnow %dibuixa la linea en color vermell
                         ylim([-1.1 12.5])
                         title('pH - Time graph');
                         xlabel('Time(s)'); 
-                        ylabel('pH([H+])'); %pH es mesura en concentració de ions H+
+                        ylabel('pH([H+])'); %pH es mesura en concentraciÃ³ de ions H+
                         grid on;
                     end
                     subplot(2,2,3); plot(t,meana,'r');drawnow %dibuixa la linea en color vermell 
