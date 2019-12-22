@@ -2,8 +2,6 @@ clear;
 var=0;
 entrat=0; %es 0 si no ha entrat en el case 1
 cont=0; 
-y4=3.4+rand(1,3000)*(3.4-4.6);
-o = 1:1:2000;
 while (var == 0)
     choice = menu('What do you want to do?.','Take measurements', 'Exit');
     %netejar les dades antigues del matlab
@@ -65,7 +63,7 @@ while (var == 0)
                     if (rem(i,4)==0) && (i~=0)
                         bt=(temp(i)+temp(i-1)+temp(i-2)+temp(i-3))/4;
                         meant = [meant, bt];
-                        bh=((h(i)+h(i-1)+h(i-2)+h(i-3))/4)+y4(i);
+                        bh=((h(i)+h(i-1)+h(i-2)+h(i-3))/4);
                         meanh = [meanh, bh];
                         ba=(sal(i)+sal(i-1)+sal(i-2)+sal(i-3))/4;
                         meana = [meana, ba]; %x=[x, newval] sirve para concatenar el valor newval
