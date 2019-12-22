@@ -8,14 +8,14 @@ s = serial('COM4');
 set(s,'BaudRate',9600, 'Terminator', 'CR/LF');
 fopen(s); %obre serial port
 %serveix per que matlab no et processi els missatges de 
-%text que envia l'arduino abans de comenÁar la presa de dades.
+%text que envia l'arduino abans de comen√ßar la presa de dades.
   while 1 %while true
         fprintf(s, 'S'); %envia una 'S' al arduino
         %fwrite(s, 'S');
         a=fscanf(s, '%d');
         %mentre caracter que li envia arduino no es numeric
         if isnumeric(a)  
-            break %quan es numËric, breaks 
+            break %quan es num√®ric, breaks 
         end
   end
   
@@ -23,7 +23,7 @@ fopen(s); %obre serial port
     t = []; %vector temps 
     mean = []; %vector on es guarden les mitjanes
     
-    %preparaciÛ de la finestra on anir‡ el gr‡fic 
+    %preparaci√≥ de la finestra on anir√† el gr√†fic 
     figure('Name','ROUVs depth against time');
     title('Depth-Time graph'); 
     xlabel('Time(s)'); 
